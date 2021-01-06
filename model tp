@@ -1,0 +1,19 @@
+local player = game.Players.LocalPlayer
+
+workspace["Alchas_Main"].ChildAdded:Connect(function(LifeOrb)
+    if LifeOrb.Name == "Model" and LifeOrb:FindFirstChild("Part") then 
+        local SaveState = player.Character.HumanoidRootPart.CFrame
+        player.Character.HumanoidRootPart.CFrame = LifeOrb.PrimaryPart.CFrame 
+        wait(.1)
+        player.Character.HumanoidRootPart.CFrame = SaveState
+    end
+end)
+
+for i,v in pairs(workspace["Alchas_Main"]:GetChildren()) do 
+    if v.Name == "Model" and v:FindFirstChild("Part") then 
+        local SaveState = player.Character.HumanoidRootPart.CFrame
+        player.Character.HumanoidRootPart.CFrame = v.PrimaryPart.CFrame 
+        wait(.1)
+        player.Character.HumanoidRootPart.CFrame = SaveState
+    end
+end
